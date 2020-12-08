@@ -1,22 +1,22 @@
 <template>
   <div class="header col-xs-12 p-2 p-md-3 text-center">
-    <div class="align-middle">
+    <div v-if="page.title" class="align-middle">
       <h1 class="display-3">{{ page.title.rendered }}</h1>
       <p class="lead" v-html="page.content.rendered"></p>
 
       <!-- <img
         class="headerimage ml-auto"
-        :src="$static.pageBy.acfheader.headerimage.mediaItemUrl"
-        :srcset="$static.pageBy.acfheader.headerimage.mediaItemUrl + ' 1x,' +
-          $static.pageBy.acfheader.headerimage2x.mediaItemUrl + ' 2x'"/> -->
+        :src="acf.headerimage.mediaItemUrl"
+        :srcset="acf.headerimage.mediaItemUrl + ' 1x,' +
+          acf.headerimage2x.mediaItemUrl + ' 2x'"/> -->
 
         <p>This website is built with Vue.js with a Headless WP installation as backend. Interested in a site? Contact me!</p>
 
-        <!-- <div class="socials">
-          <a class="btn btn-outline-secondary" :href="$static.pageBy.acfheader.linkedin.url">Linkedin</a>
-          <a class="btn btn-outline-secondary" :href="$static.pageBy.acfheader.github.url">Github</a>
-          <a class="btn btn-outline-secondary" :href="'mailto:' + $static.pageBy.acfheader.mail">Mail</a>
-        </div> -->
+        <div v-if="acfData.acf" class="socials">
+          <a class="btn btn-outline-secondary" :href="acfData.acf.linkedin.url">Linkedin</a>
+          <a class="btn btn-outline-secondary" :href="acfData.acf.github.url">Github</a>
+          <a class="btn btn-outline-secondary" :href="'mailto:' + acfData.acf.mail">Mail</a>
+        </div>
 
         <a href="#projects" class="btn viewproject btn-outline-primary" id="#link">Recent Projects</a>
     </div>
@@ -31,7 +31,9 @@
     data() {
       return {
         pageUrl: "http://wp.marthesselink.nl/wp-json/wp/v2/pages?slug=home",
-        page: []
+        page: [],
+        acfUrl: "http://wp.marthesselink.nl/wp-json/acf/v3/pages/12",
+        acfData: []
       };
     },
     methods : {
@@ -46,24 +48,27 @@
           .catch(error => {
             console.log(error);
           });
+      },
+      getACFData() {
+        axios
+          .get(this.acfUrl)
+          .then(response => {
+            this.acfData = response.data;
+            console.log('ACF data retrieved!');
+            console.log(this.acfData);
+          })
+          .catch(error => {
+            console.log(error);
+          });
       }
     },
     mounted() {
       this.getPageData();
+      this.getACFData();
     }
   };
 </script>
 
 <style scoped>
-  h3 {
-    margin: 40px 0 0;
-  }
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
+
 </style>
