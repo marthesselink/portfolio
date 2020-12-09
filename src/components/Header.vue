@@ -4,18 +4,19 @@
       <h1 class="display-3">{{ page.title.rendered }}</h1>
       <p class="lead" v-html="page.content.rendered"></p>
 
-      <!-- <img
+      <img
+        v-if="acfData"
         class="headerimage ml-auto"
-        :src="acf.headerimage.mediaItemUrl"
-        :srcset="acf.headerimage.mediaItemUrl + ' 1x,' +
-          acf.headerimage2x.mediaItemUrl + ' 2x'"/> -->
+        :src="acfData.headerImage"
+        :srcset="acfData.headerImage + ' 1x,' +
+          acfData.headerImage2x + ' 2x'"/>
 
         <p>This website is built with Vue.js with a Headless WP installation as backend. Interested in a site? Contact me!</p>
 
-        <div v-if="acfData.acf" class="socials">
-          <a class="btn btn-outline-secondary" :href="acfData.acf.linkedin.url">Linkedin</a>
-          <a class="btn btn-outline-secondary" :href="acfData.acf.github.url">Github</a>
-          <a class="btn btn-outline-secondary" :href="'mailto:' + acfData.acf.mail">Mail</a>
+        <div v-if="acfData.linkedin" class="socials">
+          <a class="btn btn-outline-secondary" :href="acfData.linkedin.url">Linkedin</a>
+          <a class="btn btn-outline-secondary" :href="acfData.github.url">Github</a>
+          <a class="btn btn-outline-secondary" :href="'mailto:' + acfData.mail">Mail</a>
         </div>
 
         <a href="#projects" class="btn viewproject btn-outline-primary" id="#link">Recent Projects</a>
@@ -53,7 +54,7 @@
         axios
           .get(this.acfUrl)
           .then(response => {
-            this.acfData = response.data;
+            this.acfData = response.data.acf;
             console.log('ACF data retrieved!');
             console.log(this.acfData);
           })
@@ -69,6 +70,39 @@
   };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  .header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
+  .headerimage {
+    max-width: 800px;
+    width: 100%;
+    margin-top: -2rem;
+
+    @media(min-width: 520px) {
+      margin-top: -3rem;
+    }
+
+    @media(min-width: 620px) {
+      margin-top: -4rem;
+    }
+
+    @media(min-width: 840px) {
+      margin-top: -5rem;
+    }
+  }
+
+  .socials {
+    .btn {
+      margin: 1rem;
+    }
+  }
+
+  .viewproject {
+    width: 100%;
+  }
 </style>
