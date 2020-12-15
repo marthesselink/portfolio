@@ -65,20 +65,8 @@
     }
   }
 
-  h2 {
-    margin-bottom: 1rem;
-  }
-
   .project {
     padding: 10px;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-
-    @media(min-width: 992px) {
-      font-size: 2rem;
-    }
   }
 
   a {
