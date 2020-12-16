@@ -1,16 +1,19 @@
 <template>
+  <Meta/>
   <Header/>
 
   <RecentProjects/>
 </template>
 
 <script>
+  import Meta from './components/Meta.vue'
   import Header from './components/Header.vue'
   import RecentProjects from './components/RecentProjects.vue'
 
   export default {
     name: 'App',
     components: {
+      Meta,
       Header,
       RecentProjects
     }
