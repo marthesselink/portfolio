@@ -31,9 +31,9 @@
     name: 'Header',
     data() {
       return {
-        pageUrl: "http://wp.marthesselink.nl/wp-json/wp/v2/pages?slug=home",
+        pageUrl: "https://wp.marthesselink.nl/wp-json/wp/v2/pages?slug=home",
         page: [],
-        acfUrl: "http://wp.marthesselink.nl/wp-json/acf/v3/pages/12",
+        acfUrl: "https://wp.marthesselink.nl/wp-json/acf/v3/pages/12",
         acfData: []
       };
     },
@@ -44,7 +44,6 @@
           .then(response => {
             this.page = response.data[0];
             console.log('Page data retrieved!');
-            console.log(this.page);
           })
           .catch(error => {
             console.log(error);
@@ -56,7 +55,6 @@
           .then(response => {
             this.acfData = response.data.acf;
             console.log('ACF data retrieved!');
-            console.log(this.acfData);
           })
           .catch(error => {
             console.log(error);

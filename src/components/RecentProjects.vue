@@ -29,7 +29,7 @@
     name: 'RecentProjects',
     data() {
       return {
-        postsUrl: "http://wp.marthesselink.nl/wp-json/wp/v2/posts",
+        postsUrl: "https://wp.marthesselink.nl/wp-json/wp/v2/posts",
         posts: []
       };
     },
@@ -40,7 +40,6 @@
           .then(response => {
             this.posts = response.data;
             console.log('Post data retrieved!');
-            console.log(this.posts);
           })
           .catch(error => {
             console.log(error);
