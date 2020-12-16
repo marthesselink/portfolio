@@ -2,7 +2,7 @@
   <div class="header col-xs-12 p-2 p-md-3 text-center">
     <div v-if="page.title" class="align-middle">
       <h1 class="display-3">{{ page.title.rendered }}</h1>
-      <p class="lead" v-html="page.content.rendered"></p>
+      <p class="lead" v-html="acfData.subtitle"></p>
 
       <img
         v-if="acfData"
@@ -11,7 +11,10 @@
         :srcset="acfData.headerImage + ' 1x,' +
           acfData.headerImage2x + ' 2x'"/>
 
-        <p>This website is built with Vue.js with a Headless WP installation as backend. Interested in a site? Contact me!</p>
+        <p
+          v-if="page.content"
+          v-html="page.content.rendered">
+        </p>
 
         <div v-if="acfData.linkedin" class="socials">
           <a class="btn btn-outline-secondary" :href="acfData.linkedin.url">Linkedin</a>
