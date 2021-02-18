@@ -3,7 +3,7 @@
     <div class="row" v-if="page.title">
       <h1 class='col-md-12'>{{ page.title.rendered }}</h1>
 
-      <div class="cta-block col-md-6 align-top">
+      <div class="cta-block col-sm-12 col-lg-6 align-top">
         <p class="subtitle" v-html="acfData.subtitle"></p>
         <p
           v-if="page.content"
@@ -17,7 +17,7 @@
         </div>
       </div>
 
-      <div class="imageHeader col-md-6">
+      <div class="imageHeader col-sm-12 col-lg-6 d-flex flex-wrap align-items-center">
         <img
         v-if="acfData"
         class="ml-auto"
@@ -25,10 +25,6 @@
         :srcset="acfData.headerImage + ' 1x,' +
           acfData.headerImage2x + ' 2x'"/>
       </div>
-
-      <!-- <div class="recent-work col-sm-12">
-        <a href="#projects" class="btn viewproject btn-outline-primary" id="#link">Recent Projects</a>
-      </div> -->
     </div>
   </div>
 
@@ -80,38 +76,29 @@
 
 <style lang="scss" scoped>
   .header {
-    max-width: 1140px;
-    margin: 0 auto;
-    width: 100%;
-    padding: 40px;
+    margin-bottom: 2rem;
   }
 
   .subtitle {
     font-weight: bold;
   }
 
+  p {
+    font-size: 25px;
+  }
+
   .imageHeader {
-    position: relative;
+    // position: relative;
 
     img {
-      max-width: 800px;
-      vertical-align: middle;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      margin: auto;
+      max-width: 100%;
     }
   }
 
   .socials {
     .btn {
       margin: 0 1rem 1rem 0;
-      min-width: 100px;
+      min-width: 80px;
     }
-  }
-
-  .viewproject {
-    width: 90%;
   }
 </style>
