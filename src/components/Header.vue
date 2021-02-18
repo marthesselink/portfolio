@@ -1,16 +1,10 @@
 <template>
-  <div class="header col-xs-12 p-2 p-md-3 text-center">
-    <div v-if="page.title" class="align-middle">
-      <h1 class="display-3">{{ page.title.rendered }}</h1>
-      <p class="lead" v-html="acfData.subtitle"></p>
+  <div class="header">
+    <div class="row" v-if="page.title">
+      <h1 class='col-md-12'>{{ page.title.rendered }}</h1>
 
-      <img
-        v-if="acfData"
-        class="headerimage ml-auto"
-        :src="acfData.headerImage"
-        :srcset="acfData.headerImage + ' 1x,' +
-          acfData.headerImage2x + ' 2x'"/>
-
+      <div class="cta-block col-md-6 align-top">
+        <p class="subtitle" v-html="acfData.subtitle"></p>
         <p
           v-if="page.content"
           v-html="page.content.rendered">
@@ -21,10 +15,23 @@
           <a class="btn btn-outline-secondary" :href="acfData.github.url">Github</a>
           <a class="btn btn-outline-secondary" :href="'mailto:' + acfData.mail">Mail</a>
         </div>
+      </div>
 
+      <div class="imageHeader col-md-6">
+        <img
+        v-if="acfData"
+        class="ml-auto"
+        :src="acfData.headerImage"
+        :srcset="acfData.headerImage + ' 1x,' +
+          acfData.headerImage2x + ' 2x'"/>
+      </div>
+
+      <!-- <div class="recent-work col-sm-12">
         <a href="#projects" class="btn viewproject btn-outline-primary" id="#link">Recent Projects</a>
+      </div> -->
     </div>
   </div>
+
 </template>
 
 <script>
@@ -73,37 +80,38 @@
 
 <style lang="scss" scoped>
   .header {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 1140px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 40px;
   }
 
-  .headerimage {
-    max-width: 800px;
-    width: 100%;
-    margin-top: -2rem;
+  .subtitle {
+    font-weight: bold;
+  }
 
-    @media(min-width: 520px) {
-      margin-top: -3rem;
-    }
+  .imageHeader {
+    position: relative;
 
-    @media(min-width: 620px) {
-      margin-top: -4rem;
-    }
-
-    @media(min-width: 840px) {
-      margin-top: -5rem;
+    img {
+      max-width: 800px;
+      vertical-align: middle;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
     }
   }
 
   .socials {
     .btn {
-      margin: 1rem;
+      margin: 0 1rem 1rem 0;
+      min-width: 100px;
     }
   }
 
   .viewproject {
-    width: 100%;
+    width: 90%;
   }
 </style>
