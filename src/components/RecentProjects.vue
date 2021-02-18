@@ -1,13 +1,12 @@
 <template>
-  <div class="recentprojects container" id="projects">
-    <h2 class="text-center display-4">Recent Projects</h2>
+  <div class="recentprojects" id="projects">
+    <h2>Recent Projects</h2>
 
     <div v-if="posts" class="row">
-      <div v-for="post in posts" :key="post.id" class="project col-sm-12 col-md-6">
-
+      <div v-for="post in posts" :key="post.id" class="project col-sm-12 col-lg-6">
         <a :href="post.acf.link" target="_blank">
-          <div class="card">
-            <h3 class="project-title">{{ post.title.rendered }}</h3>
+          <div class="card h-100">
+            <h3>{{ post.title.rendered }}</h3>
             <img
                 v-if="post.acf"
                 :alt="post.acf.title"
@@ -16,7 +15,6 @@
             <button class="btn btn-outline-primary" id="#link">View Project</button>
           </div>
         </a>
-
       </div>
     </div>
   </div>
@@ -54,31 +52,35 @@
 
 <style lang="scss" scoped>
   .recentprojects {
-    min-height: 100vh;
-    margin-bottom: 2rem;
-
-    .screenshot {
-      width: 100%;
-      max-height: 270px;
-      margin-bottom: 20px;
-    }
-  }
-
-  .project {
-    padding: 10px;
-  }
-
-  a {
-    color: black;
-
-    &:hover {
-      text-decoration: none;
+    a {
       color: black;
-    }
-  }
 
-  .card {
-    padding: 20px;
-    max-height: 100%;
+      &:hover {
+        text-decoration: none;
+        color: black;
+      }
+    }
+
+    .project {
+      margin-bottom: 2rem;
+
+      .card {
+        padding: 2rem;
+        transition: all .2s ease-out;
+
+        .screenshot {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+
+        &:hover {
+          background-color: #F5F5F5;
+
+          h3 {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
   }
 </style>
