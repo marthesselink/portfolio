@@ -1,41 +1,63 @@
 <template>
   <Meta/>
+  <Navbar/>
   <Header/>
   <Github/>
-  <RecentProjects/>
+  <Projects/>
 </template>
 
 <script>
   import Meta from './components/Meta.vue'
+  import Navbar from './components/Navbar.vue'
   import Github from './components/Github.vue'
   import Header from './components/Header.vue'
-  import RecentProjects from './components/RecentProjects.vue'
+  import Projects from './components/Projects.vue'
 
   export default {
     name: 'App',
     components: {
       Meta,
+      Navbar,
       Github,
       Header,
-      RecentProjects
+      Projects
     }
   }
 </script>
 
 <style lang="scss">
+  @font-face {
+    font-family: "Avenir Next";
+    src: url('./assets/fonts/AvenirNextLTPro-Regular.otf');
+  }
+
+  @font-face {
+    font-family: "Avenir Next Bold";
+    src: url('./assets/fonts/AvenirNextLTPro-Bold.otf');
+  }
+
+  b,
+  strong,
+  .brand {
+    font-family: Avenir Next Bold;
+  }
+
   html {
     scroll-behavior: smooth;
     max-width: 1140px;
     margin: 0 auto;
     width: 100%;
-    padding: 40px 40px 60px 40px;
+    padding: 40px 40px 0px 40px;
+  }
+
+  body {
+    padding-top: 40px;
   }
 
   h1,
   h2,
   h3 {
-    font-family: Avenir Next;
-    font-weight: bold;
+    font-family: Avenir Next Bold;
   }
 
   p {
@@ -50,6 +72,8 @@
   h2 {
     font-weight: 700;
     font-size: 45px;
+    margin-bottom: 40px;
+    text-align: center;
   }
 
   h3 {
