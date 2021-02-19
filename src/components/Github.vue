@@ -13,7 +13,9 @@
                 </svg>
               </h3>
               <p class="h-100">{{ repo.description }}</p>
-              <p><b>{{ repo.language }}</b></p>
+              <p>
+                <b>{{ repo.language }}</b>
+              </p>
             </div>
           </a>
       </div>
