@@ -4,9 +4,11 @@
   <Header/>
   <Github/>
   <Projects/>
+  <ContactForm/>
 </template>
 
 <script>
+  import ContactForm from './components/ContactForm.vue'
   import Meta from './components/Meta.vue'
   import Navbar from './components/Navbar.vue'
   import Github from './components/Github.vue'
@@ -16,6 +18,7 @@
   export default {
     name: 'App',
     components: {
+      ContactForm,
       Meta,
       Navbar,
       Github,
