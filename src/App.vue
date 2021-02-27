@@ -38,7 +38,8 @@
 
   b,
   strong,
-  .brand {
+  .brand,
+  a {
     font-family: Avenir Next Bold;
   }
 
