@@ -24,6 +24,7 @@
         :src="acfData.headerImage"
         :srcset="acfData.headerImage + ' 1x,' +
           acfData.headerImage2x + ' 2x'"/>
+
       </div>
     </div>
   </div>
