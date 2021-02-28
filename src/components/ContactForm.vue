@@ -13,17 +13,17 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <input class="form-control" type="text" placeholder="Default input" v-model="form.fullname" required>
+            <input class="form-control" type="text" placeholder="Name" v-model="form.fullname" required>
           </div>
 
           <div class="form-group">
-            <input class="form-control" type="email" placeholder="name@example.com" v-model="form.email" required>
+            <input class="form-control" type="email" placeholder="email@example.com" v-model="form.email" required>
           </div>
         </div>
 
         <div class="col-md-6">
           <div class="form-group">
-            <textarea class="form-control" rows="3" v-model="form.message" required></textarea>
+            <textarea class="form-control" rows="3" placeholder="Message goes here" v-model="form.message" required></textarea>
           </div>
         </div>
       </div>
