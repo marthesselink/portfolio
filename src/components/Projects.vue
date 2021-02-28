@@ -96,7 +96,7 @@
     }
 
     .project {
-      margin-bottom: 2rem;
+      margin-bottom: 4rem;
 
       .screenshot {
         width: 100%;
