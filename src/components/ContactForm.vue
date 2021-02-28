@@ -3,17 +3,33 @@
     <form>
       <h2>Contact</h2>
 
-      <div class="form-group">
-        <input class="form-control" type="text" placeholder="Default input" v-model="form.fullname" required>
-      </div>
-      <div class="form-group">
-        <input class="form-control" type="email" placeholder="name@example.com" v-model="form.email" required>
-      </div>
-      <div class="form-group">
-        <textarea class="form-control" rows="3" v-model="form.message" required></textarea>
+      <p
+        v-if="page.content"
+        v-html="page.content.rendered"
+        class="subtitle"
+      >
+      </p>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <input class="form-control" type="text" placeholder="Default input" v-model="form.fullname" required>
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" type="email" placeholder="name@example.com" v-model="form.email" required>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <textarea class="form-control" rows="3" v-model="form.message" required></textarea>
+          </div>
+        </div>
       </div>
 
-      <button type="submit" class="btn btn-primary" @click.prevent="submitForm">Send</button>
+
+      <button type="submit" class="btn btn-primary w-100" @click.prevent="submitForm">Send</button>
     </form>
   </div>
 </template>
@@ -25,7 +41,9 @@
     name: 'ContactForm',
     data() {
       return {
-        postUrl: "https://wp.marthesselink.nl/wp-json/contact-form-7/v1/contact-forms/164/feedback",
+        pageUrl: "https://wp.marthesselink.nl/wp-json/wp/v2/pages?id=188",
+        page: [],
+        formUrl: "https://wp.marthesselink.nl/wp-json/contact-form-7/v1/contact-forms/164/feedback",
         form: {
           fullname: '',
           email: '',
@@ -45,7 +63,7 @@
 
         if (this.form.fullname && this.form.email && this.form.message) {
           axios
-            .post(this.postUrl, data, {
+            .post(this.formUrl, data, {
               headers: {
                 'Content-Type': 'multipart/form-data'
               }
@@ -67,11 +85,31 @@
         } else {
           alert('Uh oh, you forgot some fields.. Please try again');
         }
+      },
+      getPageData() {
+        axios
+          .get(this.pageUrl)
+          .then(response => {
+            this.page = response.data[0];
+            console.log('Page data retrieved! contact');
+          })
+          .catch(error => {
+            console.log(error);
+          });
       }
+    },
+    mounted() {
+      this.getPageData();
     }
   };
 </script>
 
 <style lang="scss" scoped>
+  .contactForm {
+    margin-bottom: 40px;
 
+    .subtitle {
+      text-align: center;
+    }
+  }
 </style>
