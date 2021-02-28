@@ -13,7 +13,7 @@
         <div v-if="acfData.linkedin" class="socials">
           <a class="btn btn-outline-secondary" :href="acfData.linkedin.url">Linkedin</a>
           <a class="btn btn-outline-secondary" :href="acfData.github.url">Github</a>
-          <a class="btn btn-outline-secondary" :href="'mailto:' + acfData.mail">Mail</a>
+          <a class="btn btn-outline-secondary" href="#contact">Contact</a>
         </div>
       </div>
 
