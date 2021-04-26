@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white">
+  <nav class="navbar fixed-top navbar-expand-md navbar-light">
     <a class="navbar-brand" href="#">
       <img src="../assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Mart Hesselink
@@ -35,12 +35,30 @@
 </script>
 
 <style lang="scss" scoped>
+  $primarycolor : rgb(26, 26, 45);
+  $white: rgb(242, 242, 242);
+  $grey: rgb(156, 156, 156);
+  $orange: rgb(244, 110, 85);
+
   .navbar {
     $p: &;
 
     max-width: 1140px;
     margin: 0 auto;
     padding: 10px 40px;
+    background-color: $primarycolor;
+
+    .navbar-brand {
+      color: $white;
+    }
+
+    .nav-item {
+      color: $grey;
+    }
+
+    .active {
+      color: $orange !important;
+    }
 
     .navbar-toggler {
       &:active, &:focus {

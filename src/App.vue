@@ -29,6 +29,11 @@
 </script>
 
 <style lang="scss">
+  $primarycolor : rgb(26, 26, 45);
+  $white: rgb(242, 242, 242);
+  $grey: rgb(156, 156, 156);
+  $orange: rgb(244, 110, 85);
+
   @font-face {
     font-family: "Avenir Next";
     src: url('./assets/fonts/AvenirNextLTPro-Regular.otf');
@@ -41,9 +46,26 @@
 
   b,
   strong,
+  em,
   .brand,
+  .toptitle,
+  .subtitle,
+  .btn,
   a {
     font-family: Avenir Next Bold;
+  }
+
+  em {
+    font-style: normal;
+  }
+
+  strong {
+    color: $orange;
+    text-transform: uppercase;
+  }
+
+  body {
+    background-color: $primarycolor;
   }
 
   html {
@@ -62,13 +84,16 @@
   h2,
   h3 {
     font-family: Avenir Next Bold;
+    color: $grey;
   }
 
   p {
     font-family: Avenir Next;
+    color: $grey;
   }
 
   h1 {
+    color: $orange;
     font-weight: 700;
     font-size: 50px;
   }

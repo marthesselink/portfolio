@@ -1,6 +1,7 @@
 <template>
   <div class="header">
     <div class="row" v-if="page.title">
+      <p class="col-md-12 toptitle" v-html="acfData.toptitle"></p>
       <h1 class='col-md-12'>{{ page.title.rendered }}</h1>
 
       <div class="cta-block col-sm-12 col-lg-6 align-top">
@@ -13,7 +14,7 @@
         <div v-if="acfData.linkedin" class="socials">
           <a class="btn btn-outline-secondary" :href="acfData.linkedin.url">Linkedin</a>
           <a class="btn btn-outline-secondary" :href="acfData.github.url">Github</a>
-          <a class="btn btn-outline-secondary" href="#contact">Contact</a>
+          <a class="btn btn-outline-secondary btn-filled" href="#contact">Contact me</a>
         </div>
       </div>
 
@@ -76,17 +77,34 @@
 </script>
 
 <style lang="scss" scoped>
+  $primarycolor : rgb(26, 26, 45);
+  $white: rgb(242, 242, 242);
+  $grey: rgb(156, 156, 156);
+  $orange: rgb(244, 110, 85);
+
+  .toptitle {
+    color: $grey;
+    margin-bottom: 0;
+  }
+
   .header {
     margin-bottom: 2rem;
   }
 
   .subtitle {
-    font-weight: bold;
+    color: $white;
   }
 
   p {
     font-size: 25px;
+
+    b,
+    strong {
+      text-transform: uppercase;
+      color: $orange;
+    }
   }
+
 
   .imageHeader {
     // position: relative;
@@ -100,6 +118,14 @@
     .btn {
       margin: 0 1rem 1rem 0;
       min-width: 80px;
+      border-radius: 5px;
+      border-color: $orange;
+      color: $orange;
+    }
+
+    .btn-filled {
+      color: $primarycolor;
+      background-color: $orange;
     }
   }
 </style>
