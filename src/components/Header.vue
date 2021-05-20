@@ -108,7 +108,7 @@
 
   .dot {
     display: inline-block;
-    color: white;
+    color: $white;
     font-size: 50px;
     font-weight: bold;
   }
