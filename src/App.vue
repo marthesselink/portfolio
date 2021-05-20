@@ -5,6 +5,10 @@
   <Github/>
   <Projects/>
   <ContactForm/>
+
+  <footer>
+    Copyright 2021 | All Rights Reserved
+  </footer>
 </template>
 
 <script>
@@ -106,5 +110,11 @@
   h3 {
     font-weight: 700;
     font-size: 25px;
+  }
+
+  footer {
+    color: $grey;
+    text-align: center;
+    padding: 20px;
   }
 </style>
