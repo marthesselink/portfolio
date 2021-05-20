@@ -52,6 +52,7 @@
   .toptitle,
   .subtitle,
   .btn,
+  .badge,
   a {
     font-family: Avenir Next Bold;
   }
