@@ -54,6 +54,10 @@
 
     .nav-item {
       color: $grey;
+
+      &:hover {
+        color: $orange;
+      }
     }
 
     .active {
@@ -66,7 +70,7 @@
       }
 
       .icon-bar {
-        background: black;
+        background: $orange;
         display: block;
         width: 22px;
         height: 2px;
