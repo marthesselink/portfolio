@@ -2,7 +2,7 @@
   <div class="header">
     <div class="row" v-if="page.title">
       <p class="col-md-12 toptitle" v-html="acfData.toptitle"></p>
-      <h1 class='col-md-12'>{{ page.title.rendered }}</h1>
+      <h1 class='col-md-12'>{{ acfData.firstname }} <span class="lastname">{{ acfData.lastname }}</span> <span class="dot">.</span></h1>
 
       <div class="cta-block col-sm-12 col-lg-6 align-top">
         <p class="subtitle" v-html="acfData.subtitle"></p>
@@ -82,17 +82,35 @@
   $grey: rgb(156, 156, 156);
   $orange: rgb(244, 110, 85);
 
-  .toptitle {
-    color: $grey;
-    margin-bottom: 0;
-  }
-
   .header {
     margin-bottom: 2rem;
+    background-color: $primarycolor;
+    padding: 80px 40px 0px 40px;
+  }
+
+  .toptitle {
+    color: $grey;
+    margin-bottom: 5px;
+  }
+
+  h1 {
+    margin-bottom: 0;
+    line-height: 40px;
+
+    .lastname {
+      font-weight: regular !important;
+    }
   }
 
   .subtitle {
     color: $white;
+  }
+
+  .dot {
+    display: inline-block;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
   }
 
   p {
@@ -104,7 +122,6 @@
       color: $orange;
     }
   }
-
 
   .imageHeader {
     // position: relative;
