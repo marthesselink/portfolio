@@ -1,6 +1,12 @@
 <template>
   <div class="projects" id="projects">
-    <h2>Recent Projects</h2>
+    <div class="text">
+      <p class="subtitle">Portfolio</p>
+      <hr>
+      <h2>My Recent Creations</h2>
+
+      <p>Take a look at the projects I've made recently for clients.</p>
+    </div>
 
     <div v-if="posts" class="row">
       <div v-for="(post, index) in posts" :key="post.id" class="project col-lg-12 ">
@@ -25,17 +31,17 @@
 
               <div class="row no-margin">
                 <p v-if="post.acf.tag1">
-                  <span class="badge bg-secondary tag1">
+                  <span class="badge tag1">
                     {{ post.acf.tag1 }}
                   </span>
                 </p>
                 <p v-if="post.acf.tag2">
-                  <span class="badge bg-secondary">
+                  <span class="badge">
                     {{ post.acf.tag2 }}
                   </span>
                 </p>
                 <p v-if="post.acf.tag3">
-                  <span class="badge bg-secondary">
+                  <span class="badge">
                     {{ post.acf.tag3 }}
                   </span>
                 </p>
@@ -81,7 +87,35 @@
 </script>
 
 <style lang="scss" scoped>
+  $primarycolor : rgb(26, 26, 45);
+  $white: rgb(242, 242, 242);
+  $grey: rgb(156, 156, 156);
+  $orange: rgb(244, 110, 85);
+  $highlight: rgb(28, 33, 42);
+  $orange-dark: rgb(53, 38, 43);
+
+  .text {
+    margin-bottom: 40px;
+
+    h2 {
+      color: $white;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: $grey;
+      text-align: center;
+    }
+
+    .subtitle {
+      color: $orange;
+    }
+  }
+
   .projects {
+    padding-left: 15px;
+    padding-right: 15px;
+
     a {
       color: black;
 
@@ -97,6 +131,23 @@
 
     .project {
       margin-bottom: 4rem;
+      padding-left: 15px;
+      padding-right: 15px;
+      border-radius: 50px;
+
+      &:hover {
+        background-color: $highlight;
+      }
+
+      .description {
+        h3 {
+          color: $white;
+        }
+
+        p {
+          color: $grey;
+        }
+      }
 
       .screenshot {
         width: 100%;
@@ -108,7 +159,8 @@
       }
 
       .badge {
-        color: white;
+        color: $orange;
+        background-color: $orange-dark;
         padding: 5px;
         margin-left: 10px;
       }
