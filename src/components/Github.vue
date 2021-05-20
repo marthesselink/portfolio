@@ -1,6 +1,12 @@
 <template>
   <div class="github" id="github">
-    <h2>Open Source</h2>
+    <div class="text">
+      <p class="subtitle">Open Source</p>
+      <hr>
+      <h2>Featured Open Source</h2>
+
+      <p>Take a look at the projects I've made on my Github.</p>
+    </div>
 
     <div v-if="repos" class="row">
       <div v-for="repo in repos" :key="repo.id" class="repo col-sm-12 col-md-6">
@@ -54,6 +60,34 @@
 </script>
 
 <style lang="scss" scoped>
+  $primarycolor : rgb(26, 26, 45);
+  $white: rgb(242, 242, 242);
+  $grey: rgb(156, 156, 156);
+  $orange: rgb(244, 110, 85);
+  $highlight: rgb(28, 33, 42);
+
+  h2 {
+    color: $white;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: $grey;
+  }
+
+  .text {
+    margin-bottom: 40px;
+
+    p,
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .subtitle {
+    color: $orange;
+  }
+
   .repo {
     margin-bottom: 2rem;
 
@@ -65,9 +99,22 @@
     .card {
       padding: 2rem;
       transition: all .2s ease-out;
+      background-color: $highlight;
+
+      h3 {
+        color: $white;
+      }
+
+      p {
+        color: $grey;
+      }
+
+      b {
+        color: $orange;
+      }
 
       &:hover {
-        background-color: #F5F5F5;
+        background-color: $primarycolor;
 
         h3 {
           text-decoration: underline;
