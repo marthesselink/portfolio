@@ -30,6 +30,7 @@
 
 <style lang="scss">
   $primarycolor : rgb(26, 26, 45);
+  $backgroundcolor : rgb(20, 29, 40);
   $white: rgb(242, 242, 242);
   $grey: rgb(156, 156, 156);
   $orange: rgb(244, 110, 85);
@@ -57,6 +58,7 @@
 
   em {
     font-style: normal;
+    color: $white;
   }
 
   strong {
@@ -65,7 +67,7 @@
   }
 
   body {
-    background-color: $primarycolor;
+    background-color: $backgroundcolor;
   }
 
   html {
@@ -73,11 +75,6 @@
     max-width: 1140px;
     margin: 0 auto;
     width: 100%;
-    padding: 40px 40px 0px 40px;
-  }
-
-  body {
-    padding-top: 40px;
   }
 
   h1,
