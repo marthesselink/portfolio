@@ -1,35 +1,43 @@
 <template>
   <div class="contactForm" id="contact">
     <form>
-      <h2>Contact</h2>
+      <div class="text">
+        <p class="subtitle">Contact me</p>
+        <hr>
+        <h2>Let's have a conversation</h2>
 
-      <p
+        <p
         v-if="page.content"
         v-html="page.content.rendered"
         class="subtitle"
-      >
-      </p>
+        >
+        </p>
+      </div>
+
 
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-6">
           <div class="form-group">
             <input class="form-control" type="text" placeholder="Name" v-model="form.fullname" required>
           </div>
+        </div>
 
+        <div class="col-6">
           <div class="form-group">
-            <input class="form-control" type="email" placeholder="email@example.com" v-model="form.email" required>
+            <input class="form-control" type="email" placeholder="Email" v-model="form.email" required>
           </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-12">
           <div class="form-group">
-            <textarea class="form-control" rows="3" placeholder="Message goes here" v-model="form.message" required></textarea>
+            <textarea class="form-control" rows="3" placeholder="Enter you message here" v-model="form.message" required></textarea>
           </div>
         </div>
       </div>
 
-
-      <button type="submit" class="btn btn-primary w-100" @click.prevent="submitForm">Send</button>
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary" @click.prevent="submitForm">Send ></button>
+      </div>
     </form>
   </div>
 </template>
@@ -105,11 +113,65 @@
 </script>
 
 <style lang="scss" scoped>
+  $primarycolor : rgb(26, 26, 45);
+  $white: rgb(242, 242, 242);
+  $grey: rgb(156, 156, 156);
+  $orange: rgb(244, 110, 85);
+  $highlight: rgb(28, 33, 42);
+  $orange-dark: rgb(53, 38, 43);
+  $form: rgb(43, 48, 56);
+
+  .text {
+    margin-bottom: 40px;
+
+    p,
+    h2 {
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+  }
+
+  .subtitle {
+    color: $orange;
+  }
+
   .contactForm {
     margin-bottom: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    h2 {
+      color: $white;
+    }
 
     .subtitle {
       text-align: center;
+    }
+
+    input,
+    textarea {
+      padding: 30px;
+      background-color: $form;
+      border: 0;
+      margin-bottom: 30px;
+    }
+
+    input {
+      &::placeholder {
+        color: $grey;
+      }
+    }
+
+    .btn {
+      min-width: 300px;
+      margin: 0 auto;
+      padding: 15px;
+      background-color: $orange;
+      color: $primarycolor;
+      border: 0;
     }
   }
 </style>
