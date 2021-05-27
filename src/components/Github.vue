@@ -108,7 +108,7 @@
       }
 
       &:hover {
-        background-color: $primarycolor;
+        background-color: $primary;
 
         h3 {
           text-decoration: underline;

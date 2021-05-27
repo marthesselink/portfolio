@@ -8,7 +8,8 @@
         <p class="subtitle" v-html="acfData.subtitle"></p>
         <p
           v-if="page.content"
-          v-html="page.content.rendered">
+          v-html="page.content.rendered"
+          class="content">
         </p>
 
         <div v-if="acfData.linkedin" class="socials">
@@ -78,19 +79,22 @@
 
 <style lang="scss" scoped>
   .header {
-    margin-bottom: 2rem;
-    background-color: $primarycolor;
-    padding: 80px 40px 0px 40px;
+    margin-bottom: 100px;
+    background-color: $background;
+    padding: 100px 40px 0px 40px;
   }
 
   .toptitle {
     color: $grey;
-    margin-bottom: 5px;
+    margin-bottom: 0;
+    font-size: 24px;
+    line-height: 28px;
   }
 
   h1 {
     margin-bottom: 0;
-    line-height: 40px;
+    font-size: 72px;
+    line-height: 83px;
 
     .lastname {
       font-weight: regular !important;
@@ -109,7 +113,7 @@
   }
 
   p {
-    font-size: 25px;
+    font-size: 24px;
 
     b,
     strong {
@@ -119,8 +123,6 @@
   }
 
   .imageHeader {
-    // position: relative;
-
     img {
       max-width: 100%;
     }
@@ -128,15 +130,18 @@
 
   .socials {
     .btn {
-      margin: 0 1rem 1rem 0;
+      margin: 0 16px 16px 0;
       min-width: 80px;
+      padding: 10px 20px;
       border-radius: 5px;
-      border-color: $orange;
+      border: 2px solid $orange;
       color: $orange;
+      font-size: 18px;
+      line-height: 23px;
     }
 
     .btn-filled {
-      color: $primarycolor;
+      color: $background;
       background-color: $orange;
     }
   }

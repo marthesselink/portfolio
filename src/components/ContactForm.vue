@@ -162,7 +162,7 @@
       margin: 0 auto;
       padding: 15px;
       background-color: $orange;
-      color: $primarycolor;
+      color: $primary;
       border: 0;
     }
   }

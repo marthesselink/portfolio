@@ -41,7 +41,7 @@
     max-width: 1140px;
     margin: 0 auto;
     padding: 10px 40px;
-    background-color: $primarycolor;
+    background-color: $background;
 
     .navbar-brand {
       color: $white;
