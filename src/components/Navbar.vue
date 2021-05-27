@@ -35,11 +35,6 @@
 </script>
 
 <style lang="scss" scoped>
-  $primarycolor : rgb(26, 26, 45);
-  $white: rgb(242, 242, 242);
-  $grey: rgb(156, 156, 156);
-  $orange: rgb(244, 110, 85);
-
   .navbar {
     $p: &;
 

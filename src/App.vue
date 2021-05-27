@@ -33,12 +33,6 @@
 </script>
 
 <style lang="scss">
-  $primarycolor : rgb(26, 26, 45);
-  $backgroundcolor : rgb(20, 29, 40);
-  $white: rgb(242, 242, 242);
-  $grey: rgb(156, 156, 156);
-  $orange: rgb(244, 110, 85);
-
   @font-face {
     font-family: "Avenir Next";
     src: url('./assets/fonts/AvenirNextLTPro-Regular.otf');
