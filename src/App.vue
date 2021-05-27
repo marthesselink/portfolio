@@ -33,16 +33,6 @@
 </script>
 
 <style lang="scss">
-  @font-face {
-    font-family: "Avenir Next";
-    src: url('./assets/fonts/AvenirNextLTPro-Regular.otf');
-  }
-
-  @font-face {
-    font-family: "Avenir Next Bold";
-    src: url('./assets/fonts/AvenirNextLTPro-Bold.otf');
-  }
-
   b,
   strong,
   em,
@@ -52,7 +42,7 @@
   .btn,
   .badge,
   a {
-    font-family: Avenir Next Bold;
+    font-family: 'Ubuntu', sans-serif;
   }
 
   em {
@@ -66,7 +56,7 @@
   }
 
   body {
-    background-color: $backgroundcolor;
+    background-color: $background;
   }
 
   html {
@@ -79,12 +69,12 @@
   h1,
   h2,
   h3 {
-    font-family: Avenir Next Bold;
+    font-family: 'Ubuntu', sans-serif;
     color: $grey;
   }
 
   p {
-    font-family: Avenir Next;
+    font-family: 'Ubuntu', sans-serif;
     color: $grey;
   }
 
