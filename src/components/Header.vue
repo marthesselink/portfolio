@@ -1,36 +1,38 @@
 <template>
-  <div class="header">
-    <div class="row" v-if="page.title">
-      <p class="col-md-12 toptitle" v-html="acfData.toptitle"></p>
-      <h1 class='col-md-12'>{{ acfData.firstname }} <span class="lastname">{{ acfData.lastname }}</span> <span class="dot">.</span></h1>
+  <div class="container-fluid">
+    <div class="header">
+      <div class="container">
+        <div class="row" v-if="page.title">
 
-      <div class="cta-block col-sm-12 col-lg-6 align-top">
-        <p class="subtitle" v-html="acfData.subtitle"></p>
-        <p
-          v-if="page.content"
-          v-html="page.content.rendered"
-          class="content">
-        </p>
+          <div class="col-md-12 col-lg-7 col-sm-12">
+            <h6 v-html="acfData.toptitle"></h6>
+            <h1>{{ acfData.firstname }} <span class="lastname">{{ acfData.lastname }}</span> <span class="dot">.</span></h1>
+            <h2 class="subtitle" v-html="acfData.subtitle"></h2>
+            <p
+              v-if="page.content"
+              v-html="page.content.rendered"
+              class="content">
+            </p>
 
-        <div v-if="acfData.linkedin" class="socials">
-          <a class="btn btn-outline-secondary" :href="acfData.linkedin.url">Linkedin</a>
-          <a class="btn btn-outline-secondary" :href="acfData.github.url">Github</a>
-          <a class="btn btn-outline-secondary btn-filled" href="#contact">Contact me</a>
+            <div v-if="acfData.linkedin" class="socials">
+              <button class="outline" :href="acfData.linkedin.url">Linkedin</button>
+              <button class="outline" :href="acfData.github.url">Github</button>
+              <button class="filled" href="#contact">Contact me</button>
+            </div>
+          </div>
+
+          <div class="imageHeader col-md-12 col-lg-5 col-sm-12">
+            <img
+            v-if="acfData"
+            :src="acfData.headerImage"
+            :srcset="acfData.headerImage + ' 1x,' +
+              acfData.headerImage2x + ' 2x'"/>
+          </div>
+
         </div>
-      </div>
-
-      <div class="imageHeader col-sm-12 col-lg-6 d-flex flex-wrap align-items-center">
-        <img
-        v-if="acfData"
-        class="ml-auto"
-        :src="acfData.headerImage"
-        :srcset="acfData.headerImage + ' 1x,' +
-          acfData.headerImage2x + ' 2x'"/>
-
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -80,69 +82,76 @@
 <style lang="scss" scoped>
   .header {
     margin-bottom: 100px;
-    background-color: $background;
-    padding: 100px 40px 0px 40px;
-  }
-
-  .toptitle {
-    color: $grey;
-    margin-bottom: 0;
-    font-size: 24px;
-    line-height: 28px;
+    background-color: $header-background;
+    padding: 100px 0;
   }
 
   h1 {
-    margin-bottom: 0;
-    font-size: 72px;
-    line-height: 83px;
-
     .lastname {
-      font-weight: regular !important;
+      font-weight: normal !important;
     }
   }
 
   .subtitle {
     color: $white;
+    position: relative;
+    margin-bottom: 50px;
+
+    &::after {
+      content: "";
+      background: $orange;
+      height: 5px;
+      width: 700px;
+      position: absolute;
+      bottom: -20px;
+      left: -400px;
+    }
   }
 
   .dot {
-    display: inline-block;
     color: $white;
-    font-size: 50px;
-    font-weight: bold;
-  }
-
-  p {
-    font-size: 24px;
-
-    b,
-    strong {
-      text-transform: uppercase;
-      color: $orange;
-    }
   }
 
   .imageHeader {
     img {
-      max-width: 100%;
+      width: 100%;
     }
   }
 
   .socials {
-    .btn {
-      margin: 0 16px 16px 0;
-      min-width: 80px;
-      padding: 10px 20px;
-      border-radius: 5px;
-      border: 2px solid $orange;
-      color: $orange;
-      font-size: 18px;
-      line-height: 23px;
-    }
+    button {
+      &.outline {
+        background: none;
+        border: 2px solid $orange;
+        border-radius: 5px;
+        padding: 7px 20px;
+        margin-right: 15px;
+        color: $orange;
+        transition: .3s;
 
-    .btn-filled {
-      color: $background;
-      background-color: $orange;
+        &:hover {
+          background: $orange;
+          color: #1a1a2e;
+        }
+      }
+
+      &.filled {
+        background: $orange;
+        border: 2px solid $orange;
+        border-radius: 5px;
+        padding: 7px 20px;
+        margin-right: 15px;
+        color: #1a1a2e;
+        box-shadow: 0px 6px 7px $shadow;
+        transition: .3s ease;
+
+        &:hover {
+          box-shadow: none;
+          opacity: 80%;
+          transform: scale(1.1);
+          transition: .3s ease;
+        }
+      }
     }
   }
 </style>
