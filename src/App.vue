@@ -5,10 +5,6 @@
   <Github/>
   <Projects/>
   <ContactForm/>
-
-  <footer>
-    Copyright 2021 | All Rights Reserved
-  </footer>
 </template>
 
 <script>
@@ -33,61 +29,41 @@
 </script>
 
 <style lang="scss">
-  b,
-  strong,
-  em,
-  .brand,
-  .toptitle,
-  .subtitle,
-  .btn,
-  .badge,
-  a {
-    font-family: 'Ubuntu', sans-serif;
-  }
-
-  em {
-    font-style: normal;
-    color: $white;
-  }
-
-  strong {
-    color: $orange;
-    text-transform: uppercase;
-  }
-
-  body {
-    background-color: $background;
-  }
-
   html {
     scroll-behavior: smooth;
     margin: 0 auto;
     width: 100%;
   }
 
-  h1,
-  h2,
-  h3 {
-    font-family: 'Ubuntu', sans-serif;
+  body {
+    background-color: $background;
     color: $grey;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    line-height: 28px;
   }
 
-  p {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
     color: $grey;
+    margin-bottom: 0;
   }
 
   h1 {
     color: $orange;
-    font-weight: 700;
-    font-size: 50px;
+    font-size: 64px;
+    line-height: 83px;
   }
 
   h2 {
-    font-weight: 700;
-    font-size: 45px;
-    margin-bottom: 40px;
-    text-align: center;
+    font-size: 36px;
+    line-height: 41px;
   }
 
   h3 {
@@ -95,8 +71,25 @@
     font-size: 25px;
   }
 
+  h6 {
+    margin-bottom: 0;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  em {
+    font-style: normal;
+    color: $white;
+    font-weight: bold;
+  }
+
+  b,
+  strong {
+    color: $orange;
+    text-transform: uppercase;
+  }
+
   footer {
-    color: $grey;
     text-align: center;
     padding: 20px;
   }
