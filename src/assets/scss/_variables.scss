@@ -1,12 +1,14 @@
 /* COLORS */
-$primary: rgba(246, 109, 79, 1);
+$primary: rgb(246, 109, 79);
 $background : rgb(20, 29, 40);
+$header-background : rgb(26, 26, 46);
 $white: rgb(242, 242, 242);
-$grey: rgba(189, 189, 189, 1);
+$grey: rgb(189, 189, 189);
 $orange: rgb(244, 110, 85);
-$orange-dark: rgb(53, 38, 43);
+$orange-dark: rgbargb(244, 110, 85, 0.8);
 $highlight: rgb(28, 33, 42);
 $form: rgb(43, 48, 56);
+$shadow: rgba(0, 0, 0, 0.27);
 
 /* FONTS  */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
