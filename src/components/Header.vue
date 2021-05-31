@@ -80,10 +80,13 @@
 </script>
 
 <style lang="scss" scoped>
-  .header {
-    margin-bottom: 100px;
+  .container-fluid {
     background-color: $header-background;
-    padding: 100px 0;
+  }
+
+  .header {
+    margin-bottom: 20px;
+    padding: 100px 0 20px;
   }
 
   h1 {
@@ -119,7 +122,10 @@
   }
 
   .socials {
+    margin-bottom: 20px;
+
     button {
+      margin-bottom: 10px;
       &.outline {
         background: none;
         border: 2px solid $orange;
