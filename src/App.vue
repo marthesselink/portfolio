@@ -61,7 +61,6 @@
 
   html {
     scroll-behavior: smooth;
-    max-width: 1140px;
     margin: 0 auto;
     width: 100%;
   }
