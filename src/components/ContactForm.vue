@@ -1,10 +1,10 @@
 <template>
-  <div class="contactForm" id="contact">
+  <div class="contactForm container" id="contact">
     <form>
       <div class="text">
         <p class="subtitle">Contact me</p>
         <hr>
-        <h2>Let's have a conversation</h2>
+        <h2 v-if="!isDisabled">Let's talk so that we can make it all start happening.</h2>
 
         <p
         v-if="page.content"
@@ -12,17 +12,21 @@
         class="subtitle"
         >
         </p>
+
+        <p v-if="isDisabled" class="thankyou">
+          Thank you for your message, I'll reply as soon as possible
+        </p>
       </div>
 
 
-      <div class="row">
-        <div class="col-6">
+      <div v-if="!isDisabled" class="row">
+        <div class="col-12 col-md-6">
           <div class="form-group">
             <input class="form-control" type="text" placeholder="Name" v-model="form.fullname" required>
           </div>
         </div>
 
-        <div class="col-6">
+        <div class="col-12 col-md-6">
           <div class="form-group">
             <input class="form-control" type="email" placeholder="Email" v-model="form.email" required>
           </div>
@@ -35,8 +39,14 @@
         </div>
       </div>
 
-      <div class="col-12 text-center">
-        <button type="submit" class="btn btn-primary" @click.prevent="submitForm">Send ></button>
+      <div v-if="!isDisabled" class="col-12 text-center">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          :disabled="isDisabled"
+          @click.prevent="submitForm">
+            Send <img :src="sendSVG" />
+        </button>
       </div>
     </form>
   </div>
@@ -44,6 +54,7 @@
 
 <script>
   import axios from 'axios';
+  import sendSVG from "@/assets/send.svg";
 
   export default {
     name: 'ContactForm',
@@ -57,7 +68,9 @@
           email: '',
           message: ''
         },
-        errors: []
+        isDisabled: false,
+        errors: [],
+        sendSVG
       };
     },
     methods : {
@@ -68,6 +81,7 @@
         data.append('fullname', this.form.fullname);
         data.append('email', this.form.email);
         data.append('message', this.form.message);
+        this.isDisabled = true;
 
         if (this.form.fullname && this.form.email && this.form.message) {
           axios
@@ -80,11 +94,10 @@
               console.log(response);
 
               if (response.status === 200) {
-                alert("Thank you for your message, I'll reply as soon as possible");
-
                 this.form.fullname = '';
                 this.form.email = '';
                 this.form.message = '';
+                this.isDisabled = true;
               }
             })
             .catch(error => {
@@ -92,6 +105,7 @@
             });
         } else {
           alert('Uh oh, you forgot some fields.. Please try again');
+          this.isDisabled = false;
         }
       },
       getPageData() {
@@ -113,23 +127,6 @@
 </script>
 
 <style lang="scss" scoped>
-  .text {
-    margin-bottom: 40px;
-
-    p,
-    h2 {
-      text-align: center;
-    }
-
-    h2 {
-      margin-bottom: 10px;
-    }
-  }
-
-  .subtitle {
-    color: $orange;
-  }
-
   .contactForm {
     margin-bottom: 40px;
     padding-left: 15px;
@@ -137,18 +134,32 @@
 
     h2 {
       color: $white;
+      font-size: 40px;
     }
 
     .subtitle {
       text-align: center;
     }
 
+    .thankyou {
+      color: $white;
+      font-weight: bold;
+      font-size: 30px;
+    }
+
     input,
     textarea {
-      padding: 30px;
+      padding: 25px;
       background-color: $form;
       border: 0;
       margin-bottom: 30px;
+      color: $grey;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 25px;
+      letter-spacing: 0em;
+      text-align: left;
     }
 
     input {
@@ -160,10 +171,19 @@
     .btn {
       min-width: 300px;
       margin: 0 auto;
-      padding: 15px;
+      padding: 20px;
       background-color: $orange;
-      color: $primary;
+      color: $header-background;
       border: 0;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 126.9%;
+
+      img {
+        height: 15px;
+        vertical-align: baseline;
+        margin-left: 5px;
+      }
     }
   }
 </style>
