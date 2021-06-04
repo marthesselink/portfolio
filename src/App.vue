@@ -100,7 +100,7 @@
     background-position: center;
     margin-bottom: 20px;
     margin-top: 0;
-    opacity: 100%;
+    opacity: 1;
     border: 0;
     width: 100%;
   }
