@@ -108,8 +108,12 @@
   }
 
   .text {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     text-align: center;
+
+    @media (min-width: 992px) {
+      margin-bottom: 80px;
+    }
   }
 
   footer {

@@ -1,7 +1,7 @@
 <template>
-  <div class="projects" id="projects">
+  <div class="projects container" id="projects">
     <div class="text">
-      <p class="subtitle">Portfolio</p>
+      <p class="subtitle">Projects</p>
       <hr>
       <h2>My Recent Creations</h2>
 
@@ -29,9 +29,9 @@
                 v-html="post.content.rendered">
               </p>
 
-              <div class="row no-margin">
+              <div class="no-margin">
                 <p v-if="post.acf.tag1">
-                  <span class="badge tag1">
+                  <span class="badge">
                     {{ post.acf.tag1 }}
                   </span>
                 </p>
@@ -46,8 +46,6 @@
                   </span>
                 </p>
               </div>
-
-              <!-- <button class="btn btn-outline-primary" id="#link">View Project</button> -->
             </div>
           </div>
         </a>
@@ -87,64 +85,41 @@
 </script>
 
 <style lang="scss" scoped>
-  .text {
-    margin-bottom: 40px;
-
-    h2 {
-      color: $white;
-      margin-bottom: 10px;
-    }
-
-    p {
-      color: $grey;
-      text-align: center;
-    }
-
-    .subtitle {
-      color: $orange;
-    }
-  }
-
   .projects {
-    padding-left: 15px;
-    padding-right: 15px;
+    margin-bottom: 80px;
 
     a {
-      color: black;
-
-      &:hover {
-        text-decoration: none;
-        color: black;
-
-        h3 {
-          text-decoration: underline;
-        }
-      }
+      text-decoration: none;
     }
-
     .project {
-      margin-bottom: 4rem;
-      padding-left: 15px;
-      padding-right: 15px;
-      border-radius: 50px;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      transition: all .2s ease-out;
+
+      @media (min-width: 768px) {
+        margin: 20px 20px;
+        padding: 40px;
+      }
 
       &:hover {
         background-color: $highlight;
+        cursor: pointer;
       }
 
       .description {
-        h3 {
-          color: $white;
-        }
-
         p {
           color: $grey;
         }
       }
 
-      .screenshot {
-        width: 100%;
-        margin: 0 auto 20px;
+      .image {
+        text-align: center;
+
+        .screenshot {
+          width: 80%;
+          margin: 0 auto 20px;
+        }
       }
 
       .no-margin {
@@ -153,13 +128,12 @@
 
       .badge {
         color: $orange;
-        background-color: $orange-dark;
-        padding: 5px;
-        margin-left: 10px;
-      }
-
-      .tag1 {
-        margin-left: 0;
+        background-color: $orange-seethrough;
+        padding: 7px 20px;
+        margin-right: 15px;
+        margin-bottom: 10px;
+        border-radius: 40px;
+        float: left;
       }
     }
   }
