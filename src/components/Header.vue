@@ -4,10 +4,10 @@
       <div class="container">
         <div class="row" v-if="page.title">
 
-          <div class="col-md-12 col-lg-7 col-sm-12">
+          <div class="col-md-12 col-lg-7 col-sm-12 order-2 order-md-1">
             <h6 v-html="acfData.toptitle"></h6>
             <h1>{{ acfData.firstname }} <span class="lastname">{{ acfData.lastname }}</span> <span class="dot">.</span></h1>
-            <h2 class="subtitle" v-html="acfData.subtitle"></h2>
+            <h2 class="header-subtitle" v-html="acfData.subtitle"></h2>
             <p
               v-if="page.content"
               v-html="page.content.rendered"
@@ -21,7 +21,7 @@
             </div>
           </div>
 
-          <div class="imageHeader col-md-12 col-lg-5 col-sm-12">
+          <div class="imageHeader col-md-12 col-lg-5 col-sm-12 order-1 order-md-2">
             <img
             v-if="acfData"
             :src="acfData.headerImage"
@@ -85,8 +85,8 @@
   }
 
   .header {
-    margin-bottom: 20px;
-    padding: 100px 0 20px;
+    margin-bottom: 80px;
+    padding: 100px 0 100px;
   }
 
   h1 {
@@ -95,9 +95,10 @@
     }
   }
 
-  .subtitle {
+  .header-subtitle {
     color: $white;
     position: relative;
+    text-align: left;
     margin-bottom: 50px;
 
     &::after {
@@ -107,12 +108,21 @@
       width: 700px;
       position: absolute;
       bottom: -20px;
-      left: -400px;
+      left: -500px;
+
+      @media(min-width: 360px) {
+        left: -400px;
+      }
     }
   }
 
   .dot {
     color: $white;
+    display: none;
+
+    @media(min-width: 360px) {
+      display: inline;
+    }
   }
 
   .imageHeader {
@@ -149,7 +159,7 @@
         margin-right: 15px;
         color: #1a1a2e;
         box-shadow: 0px 6px 7px $shadow;
-        transition: .3s ease;
+        transition: .3s ease-out;
 
         &:hover {
           box-shadow: none;
