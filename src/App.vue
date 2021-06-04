@@ -29,12 +29,6 @@
 </script>
 
 <style lang="scss">
-  html {
-    scroll-behavior: smooth;
-    margin: 0 auto;
-    width: 100%;
-  }
-
   body {
     background-color: $background;
     color: $grey;
@@ -62,13 +56,17 @@
   }
 
   h2 {
+    color: $white;
     font-size: 36px;
-    line-height: 41px;
+    line-height: 48px;
+    margin-bottom: 10px;
+    text-align: center;
   }
 
   h3 {
     font-weight: 700;
-    font-size: 25px;
+    color: $white;
+    font-size: 30px;
   }
 
   h6 {
@@ -87,6 +85,31 @@
   strong {
     color: $orange;
     text-transform: uppercase;
+  }
+
+  hr {
+    height: 10px !important;
+    background: url("assets/hr.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 20px;
+    margin-top: 0;
+    opacity: 100%;
+    border: 0;
+    width: 100%;
+  }
+
+  .subtitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 3px;
+    color: $orange;
+    text-align: center;
+  }
+
+  .text {
+    margin-bottom: 80px;
+    text-align: center;
   }
 
   footer {
