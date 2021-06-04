@@ -1,5 +1,5 @@
 <template>
-  <div class="github" id="github">
+  <div class="github container" id="github">
     <div class="text">
       <p class="subtitle">Open Source</p>
       <hr>
@@ -8,8 +8,9 @@
       <p>Take a look at the projects I've made on my Github.</p>
     </div>
 
-    <div v-if="repos" class="row">
-      <div v-for="repo in repos" :key="repo.id" class="repo col-sm-12 col-md-6">
+    <div v-if="repos" class="row row-cols-1 row-cols-lg-2">
+      <div v-for="repo in repos" :key="repo.id">
+        <div class="repo">
           <a :href="repo.html_url" target="_blank">
             <div class="card h-100">
               <h3 class="repo-title">{{ repo.name }}
@@ -18,12 +19,13 @@
                   <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z"/>
                 </svg>
               </h3>
-              <p class="h-100">{{ repo.description }}</p>
+              <p class="description">{{ repo.description }}</p>
               <p>
-                <b>{{ repo.language }}</b>
+                <b class="language">{{ repo.language }}</b>
               </p>
             </div>
           </a>
+        </div>
       </div>
     </div>
   </div>
@@ -60,57 +62,43 @@
 </script>
 
 <style lang="scss" scoped>
-  h2 {
-    color: $white;
-    margin-bottom: 10px;
-  }
-
-  p {
-    color: $grey;
-  }
-
-  .text {
-    margin-bottom: 40px;
-
-    p,
-    h2 {
-      text-align: center;
-    }
-  }
-
-  .subtitle {
-    color: $orange;
+  .github {
+    margin-bottom: 80px;
   }
 
   .repo {
-    margin-bottom: 2rem;
+    margin: 10px 0;
+    box-shadow: 0px 28px 14px -16px $shadow;
+
+    @media (min-width: 992px) {
+      margin: 20px 20px;
+    }
 
     a {
-      color: black;
       text-decoration: none;
     }
 
     .card {
-      padding: 2rem;
+      padding: 25px;
       transition: all .2s ease-out;
       background-color: $highlight;
 
-      h3 {
+      .repo-title {
         color: $white;
+        font-size: 30px;
       }
 
-      p {
+      .description {
         color: $grey;
+
       }
 
-      b {
+      .language {
         color: $orange;
       }
 
       &:hover {
-        background-color: $primary;
-
-        h3 {
+        .repo-title {
           text-decoration: underline;
         }
       }
