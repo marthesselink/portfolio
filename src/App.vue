@@ -14,6 +14,7 @@
   import Github from './components/Github.vue'
   import Header from './components/Header.vue'
   import Projects from './components/Projects.vue'
+  import hr from "@/assets/hr.svg";
 
   export default {
     name: 'App',
@@ -24,6 +25,11 @@
       Github,
       Header,
       Projects
+    },
+    data() {
+      return {
+        hr
+      }
     }
   }
 </script>
@@ -89,7 +95,7 @@
 
   hr {
     height: 10px !important;
-    background: url("assets/hr.svg");
+    background: url("~@/assets/hr.svg");
     background-repeat: no-repeat;
     background-position: center;
     margin-bottom: 20px;
