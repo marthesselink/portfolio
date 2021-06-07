@@ -18,7 +18,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse">
+      <div class="collapse navbar-collapse" id="collapse">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item active">
             <a class="nav-link" aria-current="page" href="#">Home</a>
@@ -41,6 +41,16 @@
 <script>
   export default {
     name: 'Navbar',
+    mounted() {
+      const navLinks = document.querySelectorAll('.nav-item')
+      const menuToggle = document.getElementById('collapse')
+
+      navLinks.forEach((l) => {
+        l.addEventListener('click', () => {
+          menuToggle.classList.remove('show');
+        })
+      })
+    }
   }
 </script>
 
