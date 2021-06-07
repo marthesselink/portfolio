@@ -15,9 +15,9 @@
             </p>
 
             <div v-if="acfData.linkedin" class="socials">
-              <button class="outline" :href="acfData.linkedin.url">Linkedin</button>
-              <button class="outline" :href="acfData.github.url">Github</button>
-              <button class="filled" href="#contact">Contact me</button>
+              <a class="outline" :href="acfData.linkedin.url" target="_blank">Linkedin</a>
+              <a class="outline" :href="acfData.github.url" target="_blank">Github</a>
+              <a class="filled" href="#contact">Contact me</a>
             </div>
           </div>
 
@@ -134,8 +134,10 @@
   .socials {
     margin-bottom: 20px;
 
-    button {
+    a {
       margin-bottom: 10px;
+      text-decoration: none;
+
       &.outline {
         background: none;
         border: 2px solid $orange;
