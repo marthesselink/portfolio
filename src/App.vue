@@ -17,6 +17,7 @@
   import hr from "@/assets/hr.svg";
   import "bootstrap/dist/css/bootstrap.min.css"
   import "bootstrap"
+  import "animate.css/animate.compat.css"
 
   export default {
     name: 'App',

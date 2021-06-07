@@ -18,10 +18,11 @@
               <a class="outline" :href="acfData.linkedin.url" target="_blank">Linkedin</a>
               <a class="outline" :href="acfData.github.url" target="_blank">Github</a>
               <a class="filled" href="#contact">Contact me</a>
+              <a class="outline animated hinge" href="#" target="_blank">Check for bugs</a>
             </div>
           </div>
 
-          <div class="imageHeader col-md-12 col-lg-5 col-md-12 col-sm-12 order-1 order-lg-2">
+          <div class="imageHeader col-md-12 col-lg-5 col-md-12 col-sm-12 order-1 order-lg-2 animated slideInRight">
             <img
             v-if="acfData"
             :src="acfData.headerImage"
