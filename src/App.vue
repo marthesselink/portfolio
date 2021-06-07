@@ -15,6 +15,8 @@
   import Header from './components/Header.vue'
   import Projects from './components/Projects.vue'
   import hr from "@/assets/hr.svg";
+  import "bootstrap/dist/css/bootstrap.min.css"
+  import "bootstrap"
 
   export default {
     name: 'App',
