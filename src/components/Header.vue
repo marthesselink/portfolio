@@ -163,7 +163,6 @@
 
         &:hover {
           box-shadow: none;
-          opacity: 80%;
           transform: scale(1.1);
           transition: .3s ease;
         }
