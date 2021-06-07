@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row" v-if="page.title">
 
-          <div class="col-md-12 col-lg-7 col-sm-12 order-2 order-md-1">
+          <div class="col-md-12 col-lg-7 col-sm-12 order-2 order-lg-1">
             <h6 v-html="acfData.toptitle"></h6>
             <h1>{{ acfData.firstname }} <span class="lastname">{{ acfData.lastname }}</span> <span class="dot">.</span></h1>
             <h2 class="header-subtitle" v-html="acfData.subtitle"></h2>
@@ -21,7 +21,7 @@
             </div>
           </div>
 
-          <div class="imageHeader col-md-12 col-lg-5 col-sm-12 order-1 order-md-2">
+          <div class="imageHeader col-md-12 col-lg-5 col-md-12 col-sm-12 order-1 order-lg-2">
             <img
             v-if="acfData"
             :src="acfData.headerImage"
@@ -135,6 +135,7 @@
     margin-bottom: 20px;
 
     a {
+      display: inline-block;
       margin-bottom: 10px;
       text-decoration: none;
 
