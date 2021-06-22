@@ -5,7 +5,7 @@
       <hr>
       <h2>My Recent Creations</h2>
 
-      <p>Take a look at the projects I've made recently for clients.</p>
+      <p>Take a look at some of the projects I've made.</p>
     </div>
 
     <div v-if="posts" class="row">
